@@ -53,13 +53,15 @@ let createTasks = () => {
             <span class="small text-secondary">${x.date}</span>
             <p>${x.description}</p>
             <span class="options">
-              <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
-              <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
+              <i data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
+              <i class="fas fa-trash-alt"></i>
             </span>
           </div>
       `);
     });
     resetForm();
+    deleteTask();
+    editTask();
 };
 
 // ANCHOR fct de vidage de formulaire
@@ -70,20 +72,30 @@ let resetForm = () => {
 };
 
 // ANCHOR ftc de delete des tasks
-let deleteTask = (e) => {
-    e.parentElement.parentElement.remove();
-    data.splice(e.parentElement.parentElement.id, 1);
-    localStorage.setItem("data", JSON.stringify(data));
-    console.log(data);
+let deleteTask = () => {
+    let trashes = document.querySelectorAll(".fa-trash-alt");
+    trashes.forEach((trash) =>
+        trash.addEventListener("click", () => {
+            data.splice(trash.parentElement.parentElement.id, 1);
+            localStorage.setItem("data", JSON.stringify(data));
+            trash.parentElement.parentElement.remove();
+        }));
 };
 
 // ANCHOR fct de edit de tasks
-let editTask = (e) => {
-    let selectedTask = e.parentElement.parentElement;
-    textInput.value = selectedTask.children[0].innerHTML;
-    dateInput.value = selectedTask.children[1].innerHTML;
-    textarea.value = selectedTask.children[2].innerHTML;
-    deleteTask(e);
+let editTask = () => {
+    let modifs = document.querySelectorAll('.fa-edit');
+    modifs.forEach((modif) =>
+        modif.addEventListener("click", () => {
+            let selectedTask = modif.parentElement.parentElement;
+            textInput.value = selectedTask.children[0].innerHTML;
+            dateInput.value = selectedTask.children[1].innerHTML;
+            textarea.value = selectedTask.children[2].innerHTML;
+            // suppressions de l'ancient task
+            data.splice(modif.parentElement.parentElement.id, 1);
+            localStorage.setItem("data", JSON.stringify(data));
+            modif.parentElement.parentElement.remove();
+        }));
 };
 
 // ANCHOR fct de save des datas local
