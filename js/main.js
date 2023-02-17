@@ -7,8 +7,6 @@ const empty = document.querySelector("empty");
 
 // let de stockage
 let data = {};
-// liste de bouton trash et modif
-var modifs = document.querySelectorAll('.fa-edit');
 
 // écouteur du formulaire sur le submit
 form.addEventListener("submit", (e) => {
