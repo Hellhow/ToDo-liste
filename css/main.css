@@ -1,0 +1,50 @@
+/* ANCHOR Signature
+    ._________.
+    | > \   < |
+    | \\[T]// |
+    |  \|O|/  |
+    |   |Y|   |
+    |  _|||_  |
+    |_________| 
+
+*/
+
+/* ANCHOR Banner */
+
+/* SECTION main */
+
+body {
+    font-family: sans-serif;
+    margin: 0 3rem;
+}
+
+main {
+    border: 1px solid var(--dark);
+    margin-top: 1rem;
+}
+
+.container {
+    display: flex;
+    gap: 3rem;
+}
+
+#posts {
+    width: 25rem;
+}
+
+i {
+    cursor: pointer;
+}
+
+#form label,
+#input {
+    margin-bottom: 2rem;
+}
+
+textarea {
+    width: 230px;
+    height: 150px;
+    resize: none;
+}
+
+/* !SECTION main */
