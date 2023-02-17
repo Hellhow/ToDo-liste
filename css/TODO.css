@@ -73,7 +73,8 @@ main {
     gap: 20px;
 }
 
-#tasks div .options i {
+#tasks div .options i,
+.fa-trash {
     cursor: pointer;
 }
 

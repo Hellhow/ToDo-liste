@@ -27,13 +27,12 @@
     <title>Tuto todo list</title>
     <meta name="description" content="exercice tuto todo list">
 
-    <!-- SECTION CSS -->
     <!-- ANCHOR icon de la page -->
     <!-- <link rel="shortcut icon" href="..." type="image/x-icon"> -->
 
+    <!-- SECTION CSS -->
     <!-- ANCHOR CSS Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
 
     <!-- ANCHOR CSS framework -->
     <!-- <link rel="stylesheet" href="css/mode.css"> -->
@@ -60,7 +59,11 @@
     <main>
         <!-- ANCHOR Div qui contient l'app -->
         <div class="app">
-            <h2 class="mb-3"> TODO App</h2>
+            <div class="d-flex justify-content-between">
+                <h2 class="mb-3"> TODO App</h2>
+                <div data-bs-toggle="modal" data-bs-target="#delAllTasks"><i class="fa fa-trash mt-2 text-danger"
+                        data-toggle="modal" data-target="delAllTasks"></i></div>
+            </div>
             <!-- ANCHOR Div d'ajout de block -->
             <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
                 <span>Add New Task</span>
@@ -97,9 +100,30 @@
                     </div>
                 </div>
             </form>
+            <!-- !SECTION Form modal -->
         </div>
+        <!-- SECTION Alerte delete all Modal -->
+        <div class="modal fade" id="delAllTasks" tabindex="-1" role="dialog" aria-labelledby="delAllTasksTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delAllTasksLongTitle">Alerte suppression !</h5>
+                        <button type="button" class="btn btn-close close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Êtes vous sur de vouloir supprimer toutes vous taches ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- !SECTION alerte delete all modal -->
     </main>
-    <!-- §SECTION Form modal -->
     <!-- !SECTION Main -->
     <!-- SECTION Footer -->
     <!-- <footer>

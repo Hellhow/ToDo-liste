@@ -92,15 +92,25 @@ let editTask = () => {
             dateInput.value = selectedTask.children[1].innerHTML;
             textarea.value = selectedTask.children[2].innerHTML;
             // suppressions de l'ancient task
-            data.splice(modif.parentElement.parentElement.id, 1);
+            data.splice(selectedTask.id, 1);
             localStorage.setItem("data", JSON.stringify(data));
-            modif.parentElement.parentElement.remove();
+            selectedTask.remove();
         }));
 };
 
 // ANCHOR fct de save des datas local
 (() => {
     data = JSON.parse(localStorage.getItem("data")) || [];
-    console.log(data);
     createTasks();
 })();
+
+// ANCHOR fct reste all tasks
+let suppr = document.querySelector('.btn.btn-danger')
+suppr.addEventListener(`click`, () => {
+    let modifs = document.querySelectorAll('.fa-edit');
+    modifs.forEach((modif) => {
+        data = [];
+        localStorage.setItem("data", JSON.stringify(data));
+        modif.parentElement.parentElement.remove();
+    });
+});
