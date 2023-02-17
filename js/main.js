@@ -55,10 +55,9 @@ let createPost = () => {
     trashes.forEach((trash) =>
         trash.addEventListener("click", () => {
             trash.parentElement.parentElement.remove();
-            // console.log('posts.innerHTML:', posts.innerHTML)
-            // if (posts.innerHTML === ``) {
-            //     posts.innerHTML = `Poste Vide`;
-            // };
+            if (posts.children.length === 0) {
+                posts.innerHTML = `Poste Vide`;
+            };
         }));
     let modifs = document.querySelectorAll('.fa-edit');
     modifs.forEach((modif) =>

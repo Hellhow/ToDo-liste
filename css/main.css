@@ -9,8 +9,6 @@
 
 */
 
-/* ANCHOR Banner */
-
 /* SECTION main */
 
 body {
@@ -18,7 +16,7 @@ body {
     margin: 0 3rem;
 }
 
-main {
+.radius-5.p-0 {
     border: 1px solid var(--dark);
     margin-top: 1rem;
 }

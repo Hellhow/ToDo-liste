@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<!-- ANCHOR Signature
+
+    ._________.
+    | > \   < |
+    | \\[T]// |
+    |  \|O|/  |
+    |   |Y|   |
+    |  _|||_  |
+    |_________|
+
+ -->
+
+<html lang="FR-fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="SIRJACQUES Vincent">
+    <meta name="copyright" content="SIRJACQUES Vincent">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="general">
+
+    <!-- ANCHOR titre -->
+    <title>Tuto todo list</title>
+    <meta name="description" content="exercice tuto todo list">
+
+    <!-- SECTION CSS -->
+    <!-- ANCHOR icon de la page -->
+    <!-- <link rel="shortcut icon" href="..." type="image/x-icon"> -->
+
+    <!-- ANCHOR CSS Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+
+    <!-- ANCHOR CSS framework -->
+    <!-- <link rel="stylesheet" href="css/mode.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <!-- ANCHOR CSS Custom-->
+    <link rel="stylesheet" href="../css/TODO.css">
+    <!-- !SECTION CSS -->
+
+    <!-- SECTION JS__head -->
+    <script src="../js/main2.js" defer></script>
+    <!-- !SECTION JS__head -->
+
+</head>
+
+<body>
+    <!-- SECTION Header -->
+    <header class="text-center">
+        <a href="../index.html">retour vers le social media app</a>
+    </header>
+    <!-- !SECTION Header -->
+    <!-- SECTION Main -->
+    <main>
+        <!-- ANCHOR Div qui contient l'app -->
+        <div class="app">
+            <h2 class="mb-3"> TODO App</h2>
+            <!-- ANCHOR Div d'ajout de block -->
+            <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
+                <span>Add New Task</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <!-- ANCHOR Liste des tasks à faire -->
+            <h5 class="text-center my-3">Tasks</h5>
+            <div id="tasks"></div>
+            <!-- SECTION Form Modal-->
+            <form class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Task Title</p>
+                            <input type="text" class="form-control" name="" id="textInput" />
+                            <div id="msg"></div>
+                            <br />
+                            <p>Due Date</p>
+                            <input type="date" class="form-control" name="" id="dateInput" />
+                            <br />
+                            <p>Description</p>
+                            <textarea name="" class="form-control" id="textarea" s="30" rows="5"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" id="add" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!-- §SECTION Form modal -->
+    <!-- !SECTION Main -->
+    <!-- SECTION Footer -->
+    <!-- <footer>
+
+    </footer> -->
+    <!-- !SECTION Footer -->
+
+    <!-- SECTION JS__body-end -->
+    <!-- ANCHOR JS custom -->
+    <!-- ANCHOR JS framework -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <!-- !SECTION JS__body-end -->
+</body>
+
+</html>
