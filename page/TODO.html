@@ -32,12 +32,12 @@
 
     <!-- SECTION CSS -->
     <!-- ANCHOR CSS Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- ANCHOR CSS framework -->
     <!-- <link rel="stylesheet" href="css/mode.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- ANCHOR CSS Custom-->
     <link rel="stylesheet" href="../css/TODO.css">
@@ -57,12 +57,15 @@
     <!-- !SECTION Header -->
     <!-- SECTION Main -->
     <main>
-        <!-- ANCHOR Div qui contient l'app -->
+        <!-- SECTION Div qui contient l'app -->
         <div class="app">
             <div class="d-flex justify-content-between">
                 <h2 class="mb-3"> TODO App</h2>
-                <div data-bs-toggle="modal" data-bs-target="#delAllTasks"><i class="fa fa-trash mt-2 text-danger"
-                        data-toggle="modal" data-target="delAllTasks"></i></div>
+                <!-- ANCHOR btn demo modal -->
+                <div data-bs-toggle="modal" data-bs-target="#demoModal"><i class="fa fa-file mt-2"></i></div>
+                <!-- ANCHOR btn supprAll modal -->
+                <div data-bs-toggle="modal" data-bs-target="#delAllTasks"><i class="fa fa-trash mt-2 text-danger"></i>
+                </div>
             </div>
             <!-- ANCHOR Div d'ajout de block -->
             <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
@@ -81,15 +84,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Task Title</p>
-                            <input type="text" class="form-control" name="" id="textInput" />
+                            <label for="textInput">Task Title</label>
+                            <input type="text" class="form-control" name="textInput" id="textInput">
                             <div id="msg"></div>
-                            <br />
-                            <p>Due Date</p>
-                            <input type="date" class="form-control" name="" id="dateInput" />
-                            <br />
-                            <p>Description</p>
-                            <textarea name="" class="form-control" id="textarea" s="30" rows="5"></textarea>
+                            <br>
+                            <label for="dateInput">Due Date</label>
+                            <input type="date" class="form-control" name="dateInput" id="dateInput">
+                            <br>
+                            <label for="textarea">Description</label>
+                            <textarea name="textarea" class="form-control" id="textarea" s="30" rows="5"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -102,6 +105,7 @@
             </form>
             <!-- !SECTION Form modal -->
         </div>
+        <!-- !SECTION Div qui contient l'app -->
         <!-- SECTION Alerte delete all Modal -->
         <div class="modal fade" id="delAllTasks" tabindex="-1" role="dialog" aria-labelledby="delAllTasksTitle"
             aria-hidden="true">
@@ -123,6 +127,29 @@
             </div>
         </div>
         <!-- !SECTION alerte delete all modal -->
+        <!-- SECTION demo modal -->
+        <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="demoModalLongTitle">Démonstration TODO liste</h5>
+                        <button type="button" class="btn btn-close close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Vous allez créer des taches exemple mais vous allez supprimez vous taches déjà créer. Êtes-vous
+                        sûr de créer ces exemples ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            id="btn__demo">OUI</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- !SECTION demo modal -->
     </main>
     <!-- !SECTION Main -->
     <!-- SECTION Footer -->
