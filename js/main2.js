@@ -7,16 +7,44 @@ let textarea = document.getElementById("textarea");
 let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
 let add = document.getElementById("add");
+let demo = document.querySelector(`#btn__demo`);
+let suppr = document.querySelector('.btn.btn-danger')
 // ANCHOR DB temporaire
 let data = [];
 // ANCHOR pour les fct pour des dates
 let date = new Date();
+// ANCHOR REGEX
+const regexTitle = /^\w+([-]?\w+){2,20}$/;
 // !SECTION variable
 
 // ANCHOR fct d'écoute au submit
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    formValidation();
+    let isValid = false;
+    let verif = [];
+    let field = form.elements
+    for (let i = 0; i < field.length; i++) {
+        switch (field[i].id) {
+            case "textInput":
+                field[i].value = sanitizeInput(field[i].value);
+                isValid = countChar(field[i], 10);
+                verif.push(isValid);
+                break;
+            case "textarea":
+                field[i].value = sanitizeInput(field[i].value);
+                isValid = countChar(field[i], 250);
+                verif.push(isValid);
+                break;
+            default:
+                break;
+        }
+    }
+    if (checker(verif)) {
+        formValidation();
+        form.submit();
+    } else {
+        alert(`❌ Entrer un titre entre 2 et 10 caractères et une description entre 2 et 250 caractères.`);
+    }
 });
 
 // ANCHOR fct de validation du form
@@ -44,7 +72,6 @@ let acceptData = () => {
         description: textarea.value,
     });
     localStorage.setItem("data", JSON.stringify(data));
-    console.log(data);
     createTasks();
 };
 
@@ -110,7 +137,6 @@ let editTask = () => {
 })();
 
 // ANCHOR fct écoute de dellAll
-let suppr = document.querySelector('.btn.btn-danger')
 suppr.addEventListener(`click`, () => {
     dellAll();
 });
@@ -126,13 +152,11 @@ let dellAll = () => {
 }
 
 // ANCHOR fct demo
-let demo = document.querySelector(`#btn__demo`);
 demo.addEventListener(`click`, () => {
     dellAll();
     for (let i = 1; i < 5; i++) {
         txtRadom();
         localStorage.setItem("data", JSON.stringify(data));
-        console.log(data);
         createTasks();
     }
 })
@@ -183,4 +207,31 @@ let txtRadom = () => {
         default:
             break;
     }
+}
+
+
+// ANCHOR vérification
+function countChar(input, nbMax) {
+    if (input.value.length > 1 && input.value.length <= nbMax) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+let checker = (arr) => arr.every((parm) => parm === true);
+
+// ANCHOR Empêche injection de code ou caract spé
+function sanitizeInput(input) {
+    // Enlever les balises HTML
+    input = input.replace(/<[^>]*>/g, "");
+    // Enlever les caractères spéciaux dangereux
+    input = input.replace(/[^a-zA-Z0-9 ]/g, "");
+    // Enlever les espaces multiples
+    input = input.replace(/\s\s+/g, " ");
+    console.log("input 4 => ", input);
+    // Enlever les espaces en début et fin de chaîne
+    input = input.trim();
+    console.log("input 5 => ", input);
+    return input;
 }
